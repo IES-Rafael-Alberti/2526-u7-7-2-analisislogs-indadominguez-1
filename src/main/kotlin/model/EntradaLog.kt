@@ -1,9 +1,9 @@
 package org.iesra.model
 
-import java.time.LocalDate
+import java.time.LocalDateTime
 
 data class EntradaLog(
-    val fechaHora: LocalDate,
+    val fechaHora: LocalDateTime,
     val nivel: NivelLog,
     val mensaje: String
 ) {

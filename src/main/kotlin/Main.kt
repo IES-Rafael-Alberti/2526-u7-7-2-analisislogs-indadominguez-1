@@ -1,16 +1,37 @@
-package org.iesra
+import org.iesra.data.LogRepository
+import org.iesra.model.EntradaLog
+import org.iesra.parser.ParserLog
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+    val repository = LogRepository()
+    val parser = ParserLog()
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
+    // Ruta del fichero de prueba
+    val ruta = "app.log"
+
+    val lineas = try {
+        repository.obtenerLineas(ruta)
+    } catch (e: IllegalArgumentException) {
+        println("Error: ${e.message}")
+        return
     }
+
+    val logsValidos = mutableListOf<EntradaLog>()
+    var invalidas = 0
+
+    for (linea in lineas) {
+        val entrada = parser.parsear(linea)
+        if (entrada != null) {
+            logsValidos.add(entrada)
+        } else {
+            invalidas++
+        }
+    }
+
+    println("--- RESULTADO DEL PARSEO ---")
+    println("Líneas procesadas: ${lineas.size}")
+    println("Líneas válidas: ${logsValidos.size}")
+    println("Líneas inválidas: $invalidas")
+    println("\nLogs válidos:")
+    logsValidos.forEach { println(it) }
 }
