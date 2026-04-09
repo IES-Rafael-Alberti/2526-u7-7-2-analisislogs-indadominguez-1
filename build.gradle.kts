@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.3.0"
+    kotlin("jvm") version "2.0.21"
 }
 
 group = "org.iesra"
@@ -14,7 +14,7 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(11)
 }
 
 tasks.test {
