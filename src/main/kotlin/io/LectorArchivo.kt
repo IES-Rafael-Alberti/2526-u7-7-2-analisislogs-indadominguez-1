@@ -1,6 +1,5 @@
 package org.iesra.io
 
-
 import java.io.File
 
 class LectorArchivo {

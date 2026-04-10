@@ -1,0 +1,16 @@
+[2025-01-01 08:00:00] INFO Inicio del sistema
+[2025-01-01 08:05:10] INFO Cargando módulos
+[2025-01-01 08:10:25] WARNING Uso elevado de CPU
+[2025-01-01 08:12:40] ERROR Fallo al conectar con la base de datos
+[2025-01-01 08:15:00] INFO Reintento de conexión
+[2025-01-01 08:16:30] ERROR No se pudo recuperar la conexión
+[2025-01-01 08:20:00] WARNING Memoria casi llena
+[2025-01-01 08:25:00] INFO Limpieza de memoria realizada
+[2025-01-01 08:30:00] INFO Sistema estable
+
+# líneas inválidas para probar parser
+esto no es un log válido
+[2025-01-01 99:99:99] INFO hora rara pero formato ok
+[INVALIDO] ERROR fallo raro
+2025-01-01 INFO sin formato correcto
+LOG ERROR algo mal escrito
